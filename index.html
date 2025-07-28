@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skkinnedit - Dermatologist-backed Skincare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .hero-carousel {
+            height: 60vh;
+        }
+        @media (max-width: 768px) {
+            .hero-carousel {
+                height: 40vh;
+            }
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Top Banner -->
+    <div class="bg-black text-white text-center py-2 text-sm">
+        Free shipping on orders above ₹999 | COD Available
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-2xl font-bold">SKKINNEDIT</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#" class="hover:text-gray-600">Shop</a>
+                    <a href="#" class="hover:text-gray-600">About</a>
+                    <a href="#" class="hover:text-gray-600">Blog</a>
+                    <a href="#" class="hover:text-gray-600">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <i class="bi bi-search text-xl"></i>
+                    <i class="bi bi-person text-xl"></i>
+                    <i class="bi bi-cart text-xl"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <div class="hero-carousel relative overflow-hidden">
+        <div class="flex transition-transform duration-500" id="carousel">
+            <div class="w-full flex-shrink-0 bg-gray-200 flex items-center justify-center">
+                <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908" class="w-full h-full object-cover" alt="Skincare">
+            </div>
+            <!-- Add more slides as needed -->
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <section class="py-12 px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Shop by Concern</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="text-center cursor-pointer">
+                <div class="rounded-full bg-gray-100 w-32 h-32 mx-auto mb-4 flex items-center justify-center">
+                    <i class="bi bi-droplet text-4xl"></i>
+                </div>
+                <p>Acne</p>
+            </div>
+            <div class="text-center cursor-pointer">
+                <div class="rounded-full bg-gray-100 w-32 h-32 mx-auto mb-4 flex items-center justify-center">
+                    <i class="bi bi-sun text-4xl"></i>
+                </div>
+                <p>Pigmentation</p>
+            </div>
+            <!-- Add more categories -->
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="py-12 bg-gray-50 px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Best Sellers</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="product-card bg-white p-4 rounded-lg shadow">
+                <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b" class="w-full h-48 object-cover rounded" alt="Product">
+                <h3 class="font-semibold mt-4">Vitamin C Serum</h3>
+                <p class="text-gray-600">₹799</p>
+                <button class="w-full bg-black text-white py-2 mt-4 rounded">Add to Cart</button>
+            </div>
+            <!-- Add more products -->
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918604831183" class="floating-whatsapp bg-green-500 text-white p-4 rounded-full">
+        <i class="bi bi-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="font-bold mb-4">About Skkinnedit</h3>
+                <p class="text-sm">Dermatologist-backed skincare solutions for visible results in 2-3 weeks.</p>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Quick Links</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Track Order</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Contact</h3>
+                <p class="text-sm">Phone: +91 8604831183</p>
+            </div>
+            <div>
+                <h3 class="font-bold mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                    <i class="bi bi-instagram text-xl"></i>
+                    <i class="bi bi-youtube text-xl"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('.bi-list').addEventListener('click', () => {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Simple Carousel Logic
+        let currentSlide = 0;
+        const carousel = document.getElementById('carousel');
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % 3; // Assuming 3 slides
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        setInterval(nextSlide, 5000);
+
+        // Add to Cart Animation
+        document.querySelectorAll('.product-card button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.innerHTML = '✓ Added';
+                this.classList.add('bg-green-500');
+                setTimeout(() => {
+                    this.innerHTML = 'Add to Cart';
+                    this.classList.remove('bg-green-500');
+                }, 2000);
+            });
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
